@@ -7,7 +7,6 @@ import { IoChatboxEllipses, IoDuplicate, IoSearch } from "react-icons/io5";
 import { SiYoutubeshorts } from "react-icons/si";
 import "./header.css";
 import { aniDubApi } from "../Api/Api";
-import Search from "./Search";
 import { useProduct } from "../context/Context";
 import logo from "../Img/photo_2024-12-29_18-43-02.jpg";
 
@@ -91,11 +90,7 @@ function Header() {
               {/* Logo */}
               <Link to="/">
                 <li className="cursor-pointer">
-                  <img
-                    className="HeaderLogo"
-                    src="https://anilife.vercel.app/static/media/aniDub_logo.68c1d6b51d579e3f658b.png"
-                    alt="Logo"
-                  />
+                  <img className="HeaderLogo" src={logo} alt="Logo" />
                 </li>
               </Link>
               {/* Genres */}
