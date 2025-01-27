@@ -91,7 +91,7 @@ function Header() {
               <Link to="/">
                 <li className="cursor-pointer">
                   <img
-                    className="HeaderLogo w-[3.125rem] h-[3.125rem] rounded-full"
+                    className=" w-12 h-12 rounded-full"
                     src={logo}
                     alt="Logo"
                   />
