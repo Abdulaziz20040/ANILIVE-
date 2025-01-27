@@ -90,7 +90,11 @@ function Header() {
               {/* Logo */}
               <Link to="/">
                 <li className="cursor-pointer">
-                  <img className="HeaderLogo" src={logo} alt="Logo" />
+                  <img
+                    className="HeaderLogo w-8 h-8 rounded-full"
+                    src={logo}
+                    alt="Logo"
+                  />
                 </li>
               </Link>
               {/* Genres */}
