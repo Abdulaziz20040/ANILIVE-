@@ -3,12 +3,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "../App.css";
-import { IoChatboxEllipses, IoDuplicate, IoSearch } from "react-icons/io5";
+import {
+  IoChatboxEllipses,
+  IoDuplicate,
+  IoSearch,
+  IoSettingsSharp,
+} from "react-icons/io5";
 import { SiYoutubeshorts } from "react-icons/si";
 import "./header.css";
 import { aniDubApi } from "../Api/Api";
 import { useProduct } from "../context/Context";
 import logo from "../Img/photo_2024-12-29_18-43-02.jpg";
+import { BiBell } from "react-icons/bi";
 
 function Header() {
   const [data, setData] = useState([]);
@@ -164,7 +170,27 @@ function Header() {
       </div>
 
       {/* Mobile Header */}
-      <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white flex justify-between items-center px-4 py-2 shadow-lg z-50 lg:hidden">
+      <div className="fixed top-0 left-0 w-full p-4 flex items-center justify-between bg-gray-900 shadow-md z-50">
+        {/* Search Input */}
+        <div className="relative w-[240px]">
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full h-[40px] px-4 pr-10 bg-gray-800 text-white placeholder-gray-400 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <IoSearch className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+        </div>
+        {/* Icons */}
+        <div className="flex items-center">
+          <button className="p-2  rounded-full hover:bg-gray-700 focus:outline-none">
+            <IoSettingsSharp className=" text-white w-5 h-5" />
+          </button>
+          <button className="p-2  rounded-full hover:bg-gray-700 focus:outline-none">
+            <BiBell className="text-white w-6 h-6" />
+          </button>
+        </div>
+      </div>
+      <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white flex justify-between items-center px-4 py-3 shadow-lg z-50 lg:hidden">
         <Link to="/" className="flex flex-col items-center">
           <img src={logo} alt="Logo" className="w-6 h-6 rounded-full" />
           <span className="text-sm">Home</span>
@@ -173,10 +199,7 @@ function Header() {
           <IoDuplicate className="text-xl" />
           <span className="text-sm">Genre</span>
         </Link>
-        <Link to="/search" className="flex flex-col items-center">
-          <IoSearch className="text-xl" />
-          <span className="text-sm">Search</span>
-        </Link>
+
         <Link to="/shorts" className="flex flex-col items-center">
           <SiYoutubeshorts className="text-xl" />
           <span className="text-sm">Shorts</span>

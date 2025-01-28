@@ -165,7 +165,7 @@ function Card() {
 
       {/* Show More Button */}
       {cardsToShow < data.length && (
-        <div className="flex justify-center mt-6">
+        <div className="flex justify-center mt-4 mb-10">
           <button
             onClick={loadMoreCards}
             className="bg-[#F81539] text-white py-2 px-6 rounded-full hover:bg-red-600 transition duration-300"
