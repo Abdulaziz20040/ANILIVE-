@@ -1,5 +1,43 @@
 /* login css */
 
+/* Umumiy container uchun uslublar */
+.containerSlider {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .containerSlider {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 768px) {
+  .containerSlider {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .containerSlider {
+    max-width: 1250px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .containerSlider {
+    max-width: 1480px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .containerSlider {
+    max-width: 1536px;
+  }
+}
+
 .bordER {
   clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
   border-radius: 5px;
@@ -56,6 +94,15 @@
 
 .btn-primary:hover {
   background-color: #dc2626;
+}
+
+.scrollbar-hidden {
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }
 
 /* Responsiv */

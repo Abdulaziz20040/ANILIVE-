@@ -15,7 +15,7 @@ export default {
           md: "100%", // Planshetlar uchun to'liq kenglik
           lg: "1250px", // Katta noutbuklar uchun kenglik
           xl: "1480px", // Juda katta ekranlar uchun kenglik
-          "2xl": "1536px", // Juda keng ekranlar uchun kenglik
+          "2xl": "1436px", // Juda keng ekranlar uchun kenglik
         },
       },
     },

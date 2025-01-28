@@ -1,0 +1,18 @@
+.responsWidth {
+  width: 260px;
+  height: 200px;
+}
+
+.resposMt {
+  margin-top: 30px;
+}
+
+.slick-track {
+  display: flex !important; /* Slider uchun flex qo'llash */
+  gap: 10px; /* Kartalar orasidagi bo'shliq */
+}
+
+.slick-slide {
+  display: flex; /* Har bir karta uchun flex */
+  justify-content: center;
+}

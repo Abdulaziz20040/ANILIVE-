@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
 import { aniDubApi } from "../Api/Api";
-import { FaCirclePlay } from "react-icons/fa6";
-import { IoPlayCircle } from "react-icons/io5";
+import { FaPlay } from "react-icons/fa";
 
-const Trailer = () => {
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "./Trailer.css";
+
+function AutoPlay() {
   const [posts, setPosts] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     axios
@@ -19,85 +21,75 @@ const Trailer = () => {
       .catch((error) => console.error("Error fetching posts:", error));
   }, []);
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? posts.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % posts.length);
-  };
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      handleNext();
-    }, 3000);
-
-    return () => clearInterval(interval);
-  }, [posts]);
-
-  const getDisplayedPosts = () => {
-    if (posts.length <= 5) return posts;
-
-    const end = currentIndex + 5;
-    if (end <= posts.length) {
-      return posts.slice(currentIndex, end);
-    }
-
-    return [
-      ...posts.slice(currentIndex),
-      ...posts.slice(0, end - posts.length),
-    ];
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    speed: 1500,
+    autoplaySpeed: 3000,
+    cssEase: "linear",
+    swipe: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="container mt-8">
-      <div className="flex justify-between items-center">
-        <div className="flex items-center">
-          <span className="bg-[#F81539] w-[6px] h-[15px] rounded-lg inline-block mr-4"></span>
-          <h2 className="text-xl font-semibold text-white">Trailerlar</h2>
-        </div>
-        <div className="flex justify-between items-center gap-5">
-          <button
-            className="border-none bg-transparent  text-gray-500"
-            onClick={handlePrev}
-          >
-            <FaChevronLeft />
-          </button>
-          <button
-            className="border-none bg-transparent text-gray-500"
-            onClick={handleNext}
-          >
-            <FaChevronRight />
-          </button>
-        </div>
+    <div className="container">
+      <div className="flex items-center resposMt mb-4">
+        <span className="bg-[#F81539] w-[6px] h-[15px] rounded-lg inline-block mr-4"></span>
+        <h2 className="text-xl font-semibold text-white">Trailerlar</h2>
       </div>
-
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 mt-5">
-        {getDisplayedPosts().map((post, index) => (
+      <Slider {...settings}>
+        {posts.map((post, index) => (
           <div
-            key={post.id}
-            className={`rounded-lg relative overflow-hidden transition-shadow duration-300 transform  hover:opacity-100 hover:scale-110 hover:brightness-105`}
-            style={{
-              boxShadow: "0px 0px 32px 0px #00000012",
-              transition: "opacity 3s ease, transform 1s ease, filter 0s ease",
-            }}
+            key={index}
+            className="relative flex flex-col items-center space-y-2 group"
           >
+            {/* Rasm */}
             <img
-              src={post.bacgroundImg}
-              className="w-full cursor-pointer h-[200px] object-cover rounded-lg"
-              style={{
-                transition: "transform 1s ease, opacity 1s ease",
-              }}
-              alt={post.title || "Image"}
+              className="responsWidth object-cover rounded-lg mb-4"
+              src={post.img}
+              alt={post.title}
             />
-            <IoPlayCircle className=" absolute top-[40%] left-[40%] text-white size-[55px]" />
+
+            {/* Play ikonkasi */}
+            <div className="absolute inset-0 flex items-center justify-center transition cursor-pointer">
+              <div className="w-12 h-12 bg-black bg-opacity-70 rounded-full flex items-center justify-center">
+                <FaPlay className="text-white text-xl" />
+              </div>
+            </div>
+
+            {/* Title */}
+            <h3 className="text-center text-lg font-medium">{post.title}</h3>
           </div>
         ))}
-      </div>
+      </Slider>
     </div>
   );
-};
+}
 
-export default Trailer;
+export default AutoPlay;

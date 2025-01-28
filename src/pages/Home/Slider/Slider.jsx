@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import "tailwindcss/tailwind.css";
 import "./slider.css";
-import { Spin } from "antd";
 import {
   FaAngleRight,
   FaChevronLeft,
@@ -10,12 +9,13 @@ import {
   FaPlayCircle,
 } from "react-icons/fa";
 import Header from "../../../components/Header";
-import { IoTimeOutline, IoTimeSharp } from "react-icons/io5";
+import { IoTimeSharp } from "react-icons/io5";
 import { CiCalendarDate } from "react-icons/ci";
 import { slider } from "../../../Api/Api";
 import { Link } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import "../../../App.css";
 
 const Animation = () => {
   const [slides, setSlides] = useState([]);
@@ -73,7 +73,7 @@ const Animation = () => {
   }
 
   return (
-    <div className="container">
+    <div className="">
       <div
         style={{
           borderRadius: "0px 0px 7px 7px",
