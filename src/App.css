@@ -328,3 +328,24 @@
     transform: translateY(0px);
   }
 }
+
+@media (max-width: 767px) {
+  .responsMt {
+    margin-top: -20px !important;
+  }
+}
+.resposnMB {
+  margin-bottom: 38px;
+}
+.resposnMB2 {
+  margin-bottom: px;
+}
+
+@media (max-width: 768px) {
+  .resposnMB {
+    margin-bottom: 0px !important;
+  }
+  .resposnMB2 {
+    margin-bottom: 0px !important;
+  }
+}

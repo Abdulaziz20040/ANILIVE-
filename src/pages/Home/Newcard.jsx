@@ -72,7 +72,7 @@ function Newcard() {
   };
 
   return (
-    <div className="container mt-0 mx-auto">
+    <div className="container mx-auto responsMt">
       {/* Card header */}
       <div className="flex justify-between items-center mt-10 mb-5">
         <h2 className="text-xl font-semibold text-gray-800">
@@ -91,13 +91,13 @@ function Newcard() {
 
       {/* Cards */}
       <div className="relative ps-[10px] overflow-x-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 scrollbar-hidden">
-        <div className="flex gap-8 min-w-max">
+        <div className="flex gap-8 min-w-max justify-center">
           {" "}
-          {data.slice(0, 6).map((item, index) => (
+          {data.slice(0, 7).map((item, index) => (
             <div
               key={item.id}
               id={`card-${index}`}
-              className="max-w-[190px] ms-4 max-h-[260px] relative cursor-pointer group mb-10"
+              className="max-w-[190px] ms-4 max-h-[260px] relative cursor-pointer group   mb-10"
             >
               {/* Image */}
               <Link to={`details/${item.id}`}>

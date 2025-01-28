@@ -67,11 +67,11 @@ function AutoPlay() {
         {posts.map((post, index) => (
           <div
             key={index}
-            className="relative flex flex-col items-center space-y-2 group"
+            className="relative flex flex-col items-center space-y-2 group resposnMB2"
           >
             {/* Rasm */}
             <img
-              className="responsWidth object-cover rounded-lg mb-4"
+              className="responsWidth object-cover rounded-lg mb-2"
               src={post.img}
               alt={post.title}
             />
