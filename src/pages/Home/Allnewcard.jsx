@@ -89,7 +89,7 @@ function Allnewcard() {
               <div>
                 <img
                   className="w-full h-[200px] md:h-[290px] rounded-lg object-cover"
-                  src={item.img}
+                  src={item.img.replace(".jpg", ".webp")}
                   alt={item.title}
                 />
 

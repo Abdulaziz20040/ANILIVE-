@@ -1,36 +1,33 @@
 import React, { useEffect, useState } from "react";
+import profilbacgroundIMg from "../../Img/profilbacground.png";
+import userDefaultimg from "../../Img/defaultuser.png";
 
 function Profil({ profileImages }) {
   const [headerImg, setHeaderImg] = useState("");
   const [profileImg, setProfileImg] = useState("");
 
   useEffect(() => {
-    // LocalStorage'dan saqlangan rasmlarni o'qish
     const savedImages = JSON.parse(localStorage.getItem("profileImages")) || {};
     setHeaderImg(savedImages.headerImg || profileImages?.headerImg || "");
     setProfileImg(savedImages.profileImg || profileImages?.profileImg || "");
   }, [profileImages]);
 
+  const name = localStorage.getItem("name");
+
   return (
     <div>
       {/* Profil header */}
-      <div className="relative">
+      <div className="relative mt-3">
         <img
-          className="w-full h-[340px] object-cover rounded-b-lg shadow-xl"
-          src={
-            headerImg ||
-            "https://www.hdwallpapers.in/download/anime_moon_sky_window_4k_hd-3840x2160.jpg"
-          }
+          className="w-full h-[340px] object-cover rounded-lg shadow-xl"
+          src={headerImg || profilbacgroundIMg}
           alt="Header"
         />
         <div className="absolute bottom-10 left-10 flex flex-col sm:flex-row items-start gap-3">
           <div>
             <img
-              className="w-[70px] h-[70px] rounded-full"
-              src={
-                profileImg ||
-                "https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png"
-              }
+              className="w-[70px] h-[70px] rounded-full object-cover"
+              src={profileImg || userDefaultimg}
               alt="Avatar"
             />
             <button className="bg-[#D9D9D9] text-black px-2 py-1 rounded-lg mt-2 text-[13px]">

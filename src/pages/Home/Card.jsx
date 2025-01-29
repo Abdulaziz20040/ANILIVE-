@@ -75,9 +75,11 @@ function Card() {
               <div>
                 <img
                   className="w-full h-[200px] md:h-[270px] rounded-[13px] object-cover"
-                  src={item.img}
+                  loading="lazy"
+                  src={item.img.replace(".jpg", ".webp")} // Agar .webp formatiga o'zgartirishni xohlasangiz
                   alt={item.title}
                 />
+
                 {/* Title */}
                 <h2 className="text-start mt-1 font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis -tracking-2">
                   «{item.name}»

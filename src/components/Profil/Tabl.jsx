@@ -8,10 +8,10 @@ import {
 } from "react-icons/fa";
 import { HiMiniPhoto } from "react-icons/hi2";
 import { IoNotificationsSharp, IoSettingsSharp } from "react-icons/io5";
-import { MdAccountBalanceWallet } from "react-icons/md";
+import { MdAccountBalanceWallet, MdHome } from "react-icons/md";
 import { RxExit } from "react-icons/rx";
 import { TbClockHour3 } from "react-icons/tb";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const cardData = [
   { icon: <FaUser size={30} />, title: "Mening hisobim" },
@@ -59,6 +59,11 @@ const cardData = [
 function Tabl() {
   const navigate = useNavigate(); // Initialize the navigate hook
 
+  const handleExit = () => {
+    localStorage.removeItem("name");
+    navigate("/"); // Navigate to login page if user logs out
+  };
+
   return (
     <div>
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-5 mt-6">
@@ -74,14 +79,17 @@ function Tabl() {
         ))}
       </div>
       <div className=" flex items-center gap-8 mt-14">
+        <Link to={"/"}>
+          <button className=" flex items-center gap-3">
+            <MdHome className=" text-[#FC5555] size-[24px]" />
+            <h2>Home</h2>
+          </button>
+        </Link>
         <button className=" flex items-center gap-3">
           <FaUserEdit className=" text-[#FC5555] size-[24px]" />
           <h2>Profilni tahrirlash</h2>
         </button>
-        <button
-          onClick={() => navigate(-1)}
-          className=" flex items-center gap-3"
-        >
+        <button onClick={handleExit} className=" flex items-center gap-3">
           <RxExit className=" text-[#FC5555] size-[20px]" />
           <h2>Chiqish</h2>
         </button>

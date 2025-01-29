@@ -96,7 +96,11 @@ const Animation = () => {
             <div
               className="absolute inset-0 bg-cover bg-center"
               style={{
-                backgroundImage: `url(${slide.bacgroundImgBoy})`,
+                backgroundImage: `url(${slide.bacgroundImgBoy.replace(
+                  ".jpg",
+                  ".webp"
+                )})`,
+
                 zIndex: "-1",
               }}
             ></div>

@@ -50,7 +50,7 @@ function Tezkunda() {
                 <div>
                   <img
                     className="w-full h-[190px] md:h-[260px] rounded-lg object-cover"
-                    src={item.img}
+                    src={item.img.replace(".jpg", ".webp")}
                     alt={item.title}
                   />
                   <h2 className="text-start mt-1 font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis -tracking-2">

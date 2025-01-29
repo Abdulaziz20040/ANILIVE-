@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 import { slider } from "../../Api/Api";
 import { Link } from "react-router-dom";
+import profilBacground from "./../../Img/profilbacground.png";
+import userDefault from "../../Img/defaultuser.png";
 
 function Galerya({ setProfileImages }) {
   const [data, setData] = useState([]);
@@ -94,7 +96,9 @@ function Galerya({ setProfileImages }) {
             <img
               key={index}
               src={
-                gender === "Male" ? img.bacgroundImgBoy : img.bacgroundImggrl
+                gender === "Male"
+                  ? img.bacgroundImgBoy
+                  : img.bacgroundImggrl.replace(".jpg", ".webp")
               }
               alt={`Gallery Image ${index + 1}`}
               className="w-[200px] h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
@@ -105,6 +109,12 @@ function Galerya({ setProfileImages }) {
               }
             />
           ))}
+          <img
+            src={profilBacground.replace(".jpg", ".webp")}
+            alt={`Gallery Image`}
+            onClick={() => handleImageClick(profilBacground)}
+            className="w-[200px] h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
+          />
         </div>
       )}
 
@@ -121,6 +131,12 @@ function Galerya({ setProfileImages }) {
               }
             />
           ))}
+          <img
+            src={userDefault.replace(".jpg", ".webp")}
+            alt={`Gallery Image`}
+            onClick={() => handleImageClick(userDefault)}
+            className="w-[80px] h-[80px] object-cover rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform"
+          />
         </div>
       )}
 

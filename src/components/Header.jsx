@@ -13,7 +13,7 @@ import { SiYoutubeshorts } from "react-icons/si";
 import "./header.css";
 import { aniDubApi } from "../Api/Api";
 import { useProduct } from "../context/Context";
-import logo from "../Img/photo_2024-12-29_18-43-02.jpg";
+import logo from "../Img/logo (2).png";
 import { BiBell } from "react-icons/bi";
 
 function Header() {
@@ -95,12 +95,13 @@ function Header() {
             <div className="flex items-center gap-10">
               {/* Logo */}
               <Link to="/">
-                <li className="cursor-pointer">
+                <li className="cursor-pointer flex items-center gap-3">
                   <img
-                    className=" w-12 h-12 rounded-full"
+                    className=" w-11 h-11 rounded-full object-cover"
                     src={logo}
                     alt="Logo"
                   />
+                  Anilive
                 </li>
               </Link>
               {/* Genres */}
