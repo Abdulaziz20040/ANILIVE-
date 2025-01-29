@@ -9,7 +9,6 @@ import { supabase } from "./Supabase";
 import { useNavigate, Link } from "react-router-dom"; // Navigate va Link uchun
 import chatimg from "../../Img/chatImg.png";
 import "../../App.css";
-import defaultimg from "../../Img/userDefaultimg.png";
 
 function Chat() {
   const [messages, setMessages] = useState([]);
@@ -30,7 +29,7 @@ function Chat() {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="flex flex-col items-center justify-center">
-          <img className="w-[330px] -ms-8" src={chatimg} alt="Chat" />
+          <img className="w-[330px] -ms-10" src={chatimg} alt="Chat" />
           <Link to={"/login"}>
             <button className="text-[15px] border border-[#B7B7B7] mt-4 rounded-full py-2 px-4 font-semibold text-[#B7B7B7]">
               Chatga qo‘shilish uchun ro‘yxatdan o‘ting..
