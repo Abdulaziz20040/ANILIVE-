@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { CiBookmarkPlus, CiCircleInfo, CiHeart } from "react-icons/ci";
+import { CiBookmarkPlus, CiCircleInfo } from "react-icons/ci";
 import { GoPlay } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { aniDubApi } from "../../Api/Api";
 import { useProduct } from "../../context/Context";
+import "../tezkunda.css";
 
 function Card() {
   const [data, setData] = useState([]);
@@ -63,56 +64,56 @@ function Card() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 resposGap2 ">
         {data.slice(0, cardsToShow).map((item, index) => (
           <div
             key={item.id}
             id={`card-${index}`}
-            className="max-w-[200px] max-h-[270px] relative cursor-pointer group mb-14"
+            className=" resposncardMAxwidth relative cursor-pointer group mb-4"
           >
             {/* Image */}
-            <Link to={`details/${item.id}`}>
-              <div>
+            <div>
+              <Link to={`details/${item.id}`}>
                 <img
                   className="w-full h-[200px] md:h-[270px] rounded-[13px] object-cover"
                   loading="lazy"
                   src={item.img}
                   alt={item.title}
                 />
+              </Link>
 
-                {/* Title */}
-                <h2 className="text-start mt-1 font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis -tracking-2">
-                  «{item.name}»
-                </h2>
-                <p className="line-clamp-1 text-stone-300 text-[13px]">
-                  {item.desc}
-                </p>
+              {/* Title */}
+              <h2 className="text-start mt-1  font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis -tracking-2">
+                «{item.name}»
+              </h2>
+              <p className="line-clamp-1 text-stone-300 text-[13px]">
+                {item.desc}
+              </p>
 
-                {/* Hover Overlay */}
-                <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                  {/* Info Icon */}
-                  <div
-                    className="absolute top-0 right-[-10px] px-2 py-2 text-black cursor-pointer"
-                    onMouseEnter={() => handleMouseEnter(item, index)}
-                    onMouseLeave={handleMouseLeave}
-                  >
-                    <CiCircleInfo className="text-2xl text-white" />
-                  </div>
-
-                  {/* Play Icon */}
-                  <button className="text-white">
-                    <GoPlay className="text-white text-6xl transform transition-transform duration-300 group-hover:-translate-y-2" />
-                  </button>
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                {/* Info Icon */}
+                <div
+                  className="absolute top-0 right-[-10px] px-2 py-2 text-black cursor-pointer hidden sm:block"
+                  onMouseEnter={() => handleMouseEnter(item, index)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <CiCircleInfo className="text-2xl text-white" />
                 </div>
+
+                {/* Play Icon */}
+                <button className="text-white">
+                  <GoPlay className="text-white text-6xl transform transition-transform duration-300 group-hover:-translate-y-2" />
+                </button>
               </div>
-            </Link>
+            </div>
 
             {/* Modal */}
             {hoveredItem === item && (
               <div
                 className={`absolute -top-16 ${
                   modalPosition === "left" ? "right-8" : "left-full"
-                } bacgroountrans ms-2 text-white p-6 w-[280px] rounded-xl shadow-2xl z-20 border border-gray-200`}
+                } bacgroountrans ms-2 text-white p-6 w-[280px] rounded-xl  z-20 border border-gray-200`}
                 onMouseEnter={() => handleMouseEnter(item, index)}
                 onMouseLeave={handleMouseLeave}
               >

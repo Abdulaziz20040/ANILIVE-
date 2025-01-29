@@ -4,16 +4,15 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { CiBookmarkPlus, CiCircleInfo } from "react-icons/ci";
 import { GoPlay } from "react-icons/go";
 import { Link } from "react-router-dom";
-import "./../App.css";
-import { aniDubApi } from "../Api/Api";
+import "./tezkunda.css";
+import { tezKunda } from "./../Api/Api";
 
 function Tezkunda() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get(aniDubApi).then((res) => {
-      const filterDate = res.data.filter((item) => item.Tezkunda === true);
-      setData(filterDate);
+    axios.get(tezKunda).then((res) => {
+      setData(res.data);
     });
   }, []);
 
@@ -37,19 +36,19 @@ function Tezkunda() {
 
       {/* Cards */}
       <div className="relative overflow-x-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 scrollbar-hidden">
-        <div className="flex gap-10 min-w-max justify-center">
+        <div className="flex resposGap  min-w-max justify-center">
           {" "}
           {data.slice(0, 7).map((item, index) => (
             <div
               key={item.id}
               id={`card-${index}`}
-              className="max-w-[190px]   max-h-[260px] relative cursor-pointer group resposnMB"
+              className="responsMaxwidth  relative cursor-pointer group resposnMB"
             >
               {/* Image */}
               <Link to={`details/${item.id}`}>
                 <div>
                   <img
-                    className="w-full h-[190px] md:h-[260px] rounded-lg object-cover"
+                    className=" w-full h-[190px] md:h-[270px] rounded-lg object-cover"
                     src={item.img}
                     alt={item.title}
                   />
@@ -58,7 +57,7 @@ function Tezkunda() {
                   </h2>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  <div className="absolute inset-0  bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                     {/* Play Icon */}
                     <button className="text-white">
                       <GoPlay className="text-white text-6xl transform transition-transform duration-300 group-hover:-translate-y-2" />

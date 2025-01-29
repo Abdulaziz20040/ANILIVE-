@@ -1,22 +1,21 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
-import { aniDubApi } from "../Api/Api";
 import { FaPlay } from "react-icons/fa";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Trailer.css";
+import { tRailer } from "../Api/Api";
 
 function AutoPlay() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     axios
-      .get(aniDubApi)
+      .get(tRailer)
       .then((res) => {
-        const filterdate = res.data.filter((item) => item.trailer === true);
-        setPosts(filterdate);
+        setPosts(res.data);
       })
       .catch((error) => console.error("Error fetching posts:", error));
   }, []);

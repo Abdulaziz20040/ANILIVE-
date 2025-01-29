@@ -4,3 +4,5 @@ export const aniDubApi = `${apiUrl}/ANILIVE`;
 export const userDate = `${apiUrl}/userDate`;
 export const profilBacgrounimg = `${apiUrl}/profilBacgroundimg`;
 export const slider = `${apiUrl}/Slider`;
+export const tezKunda = `${apiUrl}/TezKunda`;
+export const tRailer = `${apiUrl}/Trailer`;

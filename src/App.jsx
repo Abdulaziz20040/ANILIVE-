@@ -27,6 +27,7 @@ import Obunachilar from "./components/Dashboard/Obunachilar";
 import Animelar from "./components/Dashboard/Animelar";
 import Trailerlar from "./components/Dashboard/Trailerlar";
 import Filter from "./pages/Filter";
+import Genre from "./pages/Genre";
 
 const LoadingScreen = () => {
   return (
@@ -59,6 +60,8 @@ function App() {
     { path: "edit", element: <Shorts /> },
     { path: "search", element: <Search /> },
     { path: "filter", element: <Filter /> },
+    { path: "genre", element: <Genre /> },
+
     {
       path: "/profil",
       element: <ProfilLayout profileImages={profileImages} />,

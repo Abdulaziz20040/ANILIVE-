@@ -196,12 +196,12 @@ function Header() {
           <img src={logo} alt="Logo" className="w-6 h-6 rounded-full" />
           <span className="text-sm">Home</span>
         </Link>
-        <Link to="/genres" className="flex flex-col items-center">
+        <Link to="/genre" className="flex flex-col items-center">
           <IoDuplicate className="text-xl" />
           <span className="text-sm">Genre</span>
         </Link>
 
-        <Link to="/shorts" className="flex flex-col items-center">
+        <Link to="/edit" className="flex flex-col items-center">
           <SiYoutubeshorts className="text-xl" />
           <span className="text-sm">Shorts</span>
         </Link>

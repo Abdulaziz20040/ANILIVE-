@@ -4,28 +4,11 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { CiBookmarkPlus, CiCircleInfo } from "react-icons/ci";
 import { GoPlay } from "react-icons/go";
 import { Link } from "react-router-dom";
+import "../tezkunda.css";
 import { aniDubApi } from "../../Api/Api";
-import { useProduct } from "../../context/Context";
-import "./../../App.css";
 
 function Newcard() {
   const [data, setData] = useState([]);
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const [modalPosition, setModalPosition] = useState("right");
-  const { addToFavorite, favorite, deleteFromFavorite } = useProduct();
-
-  const handleFavorite = (item) => {
-    const isAdded = addToFavorite(item);
-    const isInFavorites = favorite.some((fav) => fav.id === item.id);
-
-    if (isInFavorites) {
-      deleteFromFavorite(item.id);
-      // alert("Removed from favorites");
-    } else {
-      addToFavorite(item);
-      // alert("Added to favorites");
-    }
-  };
 
   useEffect(() => {
     axios
@@ -53,26 +36,8 @@ function Newcard() {
       });
   }, []);
 
-  const handleMouseEnter = (item, index) => {
-    // Calculate the modal position
-    const card = document.getElementById(`card-${index}`);
-    if (card) {
-      const cardRect = card.getBoundingClientRect();
-      if (cardRect.right + 300 > window.innerWidth) {
-        setModalPosition("left");
-      } else {
-        setModalPosition("right");
-      }
-    }
-    setHoveredItem(item);
-  };
-
-  const handleMouseLeave = () => {
-    setHoveredItem(null);
-  };
-
   return (
-    <div className="container mx-auto responsMt">
+    <div className="container responsMt2 mx-auto mb-4">
       {/* Card header */}
       <div className="flex justify-between items-center mt-10 mb-5">
         <h2 className="text-xl font-semibold text-gray-800">
@@ -90,49 +55,29 @@ function Newcard() {
       </div>
 
       {/* Cards */}
-      <div className="relative ps-[10px] overflow-x-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 scrollbar-hidden">
-        <div className="flex gap-8 min-w-max justify-center">
+      <div className="relative overflow-x-auto scrollbar-thin scrollbar-thumb-gray-600 scrollbar-track-gray-800 scrollbar-hidden">
+        <div className="flex resposGap  min-w-max justify-center">
           {" "}
           {data.slice(0, 7).map((item, index) => (
             <div
               key={item.id}
               id={`card-${index}`}
-              className="max-w-[190px] ms-4 max-h-[260px] relative cursor-pointer group   mb-10"
+              className="responsMaxwidth  relative cursor-pointer group resposnMB"
             >
               {/* Image */}
               <Link to={`details/${item.id}`}>
                 <div>
                   <img
-                    className="w-full h-[190px] md:h-[260px] rounded-lg object-cover"
+                    className=" w-full h-[190px] md:h-[270px] rounded-lg object-cover"
                     src={item.img}
                     alt={item.title}
                   />
-
-                  {/* Title */}
-                  <div className="relative flex flex-col items-start">
-                    {/* ID ko'rsatish */}
-                    <p className=" text-[#ffbade] absolute -left-7 -top-6 text-lg font-bold">
-                      0{item.id}
-                    </p>
-
-                    {/* Name ko'rsatish */}
-                    <h2
-                      className="absolute -left-8 bottom-10 text-start font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis tracking-tight"
-                      style={{
-                        writingMode: "vertical-lr",
-                        textOrientation: "mixed",
-                        transform: "rotate(180deg)",
-                      }}
-                    >
-                      {item.name.length > 20
-                        ? `${item.name.slice(0, 20)}...`
-                        : item.name}
-                    </h2>
-                  </div>
+                  <h2 className="text-start mt-1 font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis -tracking-2">
+                    «{item.name}»
+                  </h2>
 
                   {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                    {/* Info Icon */}
+                  <div className="absolute inset-0 bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
                     {/* Play Icon */}
                     <button className="text-white">
                       <GoPlay className="text-white text-6xl transform transition-transform duration-300 group-hover:-translate-y-2" />
