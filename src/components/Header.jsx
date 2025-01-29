@@ -170,7 +170,7 @@ function Header() {
       </div>
 
       {/* Mobile Header */}
-      <div className="fixed top-0 left-0 w-full p-4 flex items-center justify-between bg-gray-900 shadow-md z-50">
+      <div className="fixed top-0 left-0 w-full p-4 flex items-center justify-between bg-gray-900 shadow-md z-50 lg:hidden">
         {/* Search Input */}
         <div className="relative w-[240px]">
           <input
