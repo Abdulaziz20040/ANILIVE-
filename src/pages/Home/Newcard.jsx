@@ -104,7 +104,7 @@ function Newcard() {
                 <div>
                   <img
                     className="w-full h-[190px] md:h-[260px] rounded-lg object-cover"
-                    src={item.img.replace(".jpg", ".webp")}
+                    src={item.img}
                     alt={item.title}
                   />
 

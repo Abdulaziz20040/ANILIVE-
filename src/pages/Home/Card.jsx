@@ -76,7 +76,7 @@ function Card() {
                 <img
                   className="w-full h-[200px] md:h-[270px] rounded-[13px] object-cover"
                   loading="lazy"
-                  src={item.img.replace(".jpg", ".webp")} // Agar .webp formatiga o'zgartirishni xohlasangiz
+                  src={item.img}
                   alt={item.title}
                 />
 

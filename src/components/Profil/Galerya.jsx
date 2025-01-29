@@ -96,9 +96,7 @@ function Galerya({ setProfileImages }) {
             <img
               key={index}
               src={
-                gender === "Male"
-                  ? img.bacgroundImgBoy
-                  : img.bacgroundImggrl.replace(".jpg", ".webp")
+                gender === "Male" ? img.bacgroundImgBoy : img.bacgroundImggrl
               }
               alt={`Gallery Image ${index + 1}`}
               className="w-[200px] h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
@@ -110,7 +108,7 @@ function Galerya({ setProfileImages }) {
             />
           ))}
           <img
-            src={profilBacground.replace(".jpg", ".webp")}
+            src={profilBacground}
             alt={`Gallery Image`}
             onClick={() => handleImageClick(profilBacground)}
             className="w-[200px] h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
@@ -132,7 +130,7 @@ function Galerya({ setProfileImages }) {
             />
           ))}
           <img
-            src={userDefault.replace(".jpg", ".webp")}
+            src={userDefault}
             alt={`Gallery Image`}
             onClick={() => handleImageClick(userDefault)}
             className="w-[80px] h-[80px] object-cover rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform"

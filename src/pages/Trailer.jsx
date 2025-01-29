@@ -72,7 +72,7 @@ function AutoPlay() {
             {/* Rasm */}
             <img
               className="responsWidth object-cover rounded-lg mb-2"
-              src={post.img.replace(".jpg", ".webp")}
+              src={post.img}
               alt={post.title}
             />
 
