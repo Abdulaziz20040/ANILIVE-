@@ -20,6 +20,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
   const [gmail, setgamil] = useState();
+  const [gender, setGender] = useState("");
 
   useEffect(() => {
     axios
@@ -89,6 +90,7 @@ const Login = () => {
       localStorage.setItem("password", password);
       localStorage.setItem("gmail", gmail);
       localStorage.setItem("userIMg", defaultimg);
+      localStorage.setItem("gender", gender);
 
       const dataToSend = {
         name,
@@ -132,9 +134,9 @@ const Login = () => {
         style={{
           borderRadius: "10px",
         }}
-        className="w-full lg:w-5/12 flex justify-center items-center p-6 bg-gradient-to-r from-gray-800 to-gray-900"
+        className="w-full lg:w-5/12 flex justify-center items-center p-6 bg-gradient-to-r from-gray-800 to-gray-900 lg:relative absolute top-0 left-0 h-full lg:h-auto"
       >
-        <div className="w-full max-w-md p-6 ">
+        <div className="w-full max-w-md p-6">
           <h2 className="text-center text-2xl font-bold mb-4 text-gray-400">
             {isLogin ? "Tizimga kirish" : "Ro'yxatdan o'tish"}
           </h2>
@@ -177,7 +179,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={handleFormSubmitold}
-                className=" w-full py-3 rounded-md text-white bg-[#29B4FF30]"
+                className="w-full py-3 rounded-md text-white bg-[#29B4FF30]"
               >
                 {isLogin ? "Kirish" : "Ro'yxatdan o'tish"}
               </button>
@@ -228,11 +230,23 @@ const Login = () => {
                   className="input-field pl-10 w-full rounded-md border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-              <div className=" flex items-center gap-3">
-                <button className=" bg-[#fbfdff2c] py-2 px-4 rounded-full hover:bg-[#29B4FF30]">
+              <div className="flex items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setGender("female")}
+                  className={`py-2 px-4 rounded-full ${
+                    gender === "female" ? "bg-[#29B4FF30]" : "bg-[#fbfdff2c]"
+                  } hover:bg-[#29B4FF30]`}
+                >
                   Female
                 </button>
-                <button className=" bg-[#fbfdff2c] py-2 px-4 rounded-full hover:bg-[#29B4FF30]">
+                <button
+                  type="button"
+                  onClick={() => setGender("male")}
+                  className={`py-2 px-4 rounded-full ${
+                    gender === "male" ? "bg-[#29B4FF30]" : "bg-[#fbfdff2c]"
+                  } hover:bg-[#29B4FF30]`}
+                >
                   Male
                 </button>
               </div>
@@ -241,7 +255,7 @@ const Login = () => {
               <button
                 type="button"
                 onClick={handleFormSubmit}
-                className=" w-full py-3  rounded-md text-white bg-[#29B4FF30]"
+                className="w-full py-3 rounded-md text-white bg-[#29B4FF30]"
               >
                 {isLogin ? "Kirish" : "Ro'yxatdan o'tish"}
               </button>
@@ -250,7 +264,7 @@ const Login = () => {
 
           {/* Switch between Login and Sign-Up */}
           <div className="text-center mt-4 flex justify-between">
-            <span>{isLogin ? " Hisobinggiz yo'qmi" : "hisobingiz bormi "}</span>
+            <span>{isLogin ? " Hisobingiz yo'qmi" : "Hisobingiz bormi"}</span>
             <button
               onClick={() => setIsLogin(!isLogin)}
               className="text-blue-500 hover:underline"
