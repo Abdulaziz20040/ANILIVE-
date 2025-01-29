@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Allnewcard from "./pages/Home/Allnewcard";
@@ -25,138 +26,81 @@ import ShortsD from "./components/Dashboard/ShortsD";
 import Obunachilar from "./components/Dashboard/Obunachilar";
 import Animelar from "./components/Dashboard/Animelar";
 import Trailerlar from "./components/Dashboard/Trailerlar";
-import { useState } from "react";
 import Filter from "./pages/Filter";
 
+const LoadingScreen = () => {
+  return (
+    <div className="flex flex-col justify-center items-center h-screen bg-white">
+      <h1 className="text-3xl font-bold text-orange-500 mb-4">Anilive</h1>
+      <div className="w-52 h-1 bg-gray-200 rounded-full relative overflow-hidden">
+        <div className="h-full w-full bg-orange-500 animate-loading"></div>
+      </div>
+    </div>
+  );
+};
+
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [profileImages, setProfileImages] = useState({
     headerImg: null,
     profileImg: null,
   });
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  }, []);
+
   const router = createBrowserRouter([
-    {
-      path: "/login",
-      element: <Login />,
-    },
-
-    {
-      path: "chat",
-      element: <Chat />,
-    },
-    {
-      path: "details/:id",
-      element: <Detals />,
-    },
-    {
-      path: "edit",
-      element: <Shorts />,
-    },
-    {
-      path: "search",
-      element: <Search />,
-    },
-    {
-      path: "filter",
-      element: <Filter />,
-    },
-
+    { path: "/login", element: <Login /> },
+    { path: "chat", element: <Chat /> },
+    { path: "details/:id", element: <Detals /> },
+    { path: "edit", element: <Shorts /> },
+    { path: "search", element: <Search /> },
+    { path: "filter", element: <Filter /> },
     {
       path: "/profil",
       element: <ProfilLayout profileImages={profileImages} />,
       children: [
-        {
-          index: true,
-          element: <Tabl />,
-        },
-        {
-          path: "favorites",
-          element: <Favorites />,
-        },
-        {
-          path: "sozlamalar",
-          element: <Settings />,
-        },
-        {
-          path: "yordam",
-          element: <Help />,
-        },
-        {
-          path: "balans",
-          element: <Balans />,
-        },
+        { index: true, element: <Tabl /> },
+        { path: "favorites", element: <Favorites /> },
+        { path: "sozlamalar", element: <Settings /> },
+        { path: "yordam", element: <Help /> },
+        { path: "balans", element: <Balans /> },
         {
           path: "galerya",
           element: <Galerya setProfileImages={setProfileImages} />,
         },
-        {
-          path: "tariflar",
-          element: <Tariflar />,
-        },
-        {
-          path: "ko'rilganlar",
-          element: <Istorya />,
-        },
-        {
-          path: "xabarlar",
-          element: <Notifacions />,
-        },
+        { path: "tariflar", element: <Tariflar /> },
+        { path: "ko'rilganlar", element: <Istorya /> },
+        { path: "xabarlar", element: <Notifacions /> },
       ],
     },
-
     {
       path: "/admin",
       element: <DashboardLayout />,
       children: [
-        {
-          index: true,
-          element: <Dashboard />,
-        },
-        {
-          path: "dashboardHome",
-          element: <Dashboard />,
-        },
-        {
-          path: "shorts",
-          element: <ShortsD />,
-        },
-        {
-          path: "obunachilar",
-          element: <Obunachilar />,
-        },
-        {
-          path: "animelar",
-          element: <Animelar />,
-        },
-        {
-          path: "trailerlar",
-          element: <Trailerlar />,
-        },
+        { index: true, element: <Dashboard /> },
+        { path: "dashboardHome", element: <Dashboard /> },
+        { path: "shorts", element: <ShortsD /> },
+        { path: "obunachilar", element: <Obunachilar /> },
+        { path: "animelar", element: <Animelar /> },
+        { path: "trailerlar", element: <Trailerlar /> },
       ],
     },
-
     {
       path: "/",
       element: <Rotlayout />,
       children: [
-        {
-          index: true,
-          element: <Home />,
-        },
-
-        {
-          path: "allnewCard",
-          element: <Allnewcard />,
-        },
-
-        {
-          path: "allTezkunda",
-          element: <Alltezkunda />,
-        },
+        { index: true, element: <Home /> },
+        { path: "allnewCard", element: <Allnewcard /> },
+        { path: "allTezkunda", element: <Alltezkunda /> },
       ],
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return isLoading ? <LoadingScreen /> : <RouterProvider router={router} />;
 }
 
 export default App;
