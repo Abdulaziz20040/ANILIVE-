@@ -12,14 +12,23 @@
 }
 @media (max-width: 768px) {
   .responsMaxwidth {
-    max-width: 135px !important;
+    max-width: 155px !important;
   }
   .resposncardMAxwidth {
-    max-width: 1350px !important;
+    max-width: 350px !important;
   }
 
   .resposGap {
     gap: 16px !important;
+  }
+  .resposGap2 {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .resposncardMAxwidth {
+    max-width: 260px !important;
   }
   .resposGap2 {
     gap: 16px;

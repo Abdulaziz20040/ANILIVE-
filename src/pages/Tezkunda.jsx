@@ -42,13 +42,13 @@ function Tezkunda() {
             <div
               key={item.id}
               id={`card-${index}`}
-              className="responsMaxwidth  relative cursor-pointer group resposnMB"
+              className=" responsMaxwidth  relative cursor-pointer group resposnMB"
             >
               {/* Image */}
               <Link to={`details/${item.id}`}>
                 <div>
                   <img
-                    className=" w-full h-[190px] md:h-[270px] rounded-lg object-cover"
+                    className=" w-full h-[200px] md:h-[270px] rounded-lg object-cover"
                     src={item.img}
                     alt={item.title}
                   />
