@@ -183,12 +183,16 @@ function Header() {
         </div>
         {/* Icons */}
         <div className="flex items-center">
-          <button className="p-2  rounded-full hover:bg-gray-700 focus:outline-none">
-            <IoSettingsSharp className=" text-white w-5 h-5" />
-          </button>
-          <button className="p-2  rounded-full hover:bg-gray-700 focus:outline-none">
-            <BiBell className="text-white w-6 h-6" />
-          </button>
+          <Link to={"/profil/sozlamalar"}>
+            <button className="p-2  rounded-full hover:bg-gray-700 focus:outline-none">
+              <IoSettingsSharp className=" text-white w-5 h-5" />
+            </button>
+          </Link>
+          <Link to={"/profil/xabarlar"}>
+            <button className="p-2  rounded-full hover:bg-gray-700 focus:outline-none">
+              <BiBell className="text-white w-6 h-6" />
+            </button>
+          </Link>
         </div>
       </div>
       <div className="fixed bottom-0 left-0 w-full bg-gray-800 text-white flex justify-between items-center px-4 py-3 shadow-lg z-50 lg:hidden">
