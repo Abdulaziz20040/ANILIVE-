@@ -28,14 +28,13 @@ import Animelar from "./components/Dashboard/Animelar";
 import Trailerlar from "./components/Dashboard/Trailerlar";
 import Filter from "./pages/Filter";
 import Genre from "./pages/Genre";
+import loading from "./Img/loading.gif";
 
 const LoadingScreen = () => {
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-white">
+      <img className=" w-[140px] h-[100px]" src={loading} />
       <h1 className="text-3xl font-bold text-orange-500 mb-4">Anilive</h1>
-      <div className="w-52 h-1 bg-gray-200 rounded-full relative overflow-hidden">
-        <div className="h-full w-full bg-orange-500 animate-loading"></div>
-      </div>
     </div>
   );
 };
@@ -50,7 +49,7 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 2000);
   }, []);
 
   const router = createBrowserRouter([
