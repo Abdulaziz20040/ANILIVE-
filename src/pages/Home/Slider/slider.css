@@ -265,4 +265,7 @@
 }
 
 @media screen and (max-width: 390px) {
+  .SliderTop {
+    margin-top: 190px !important;
+  }
 }
