@@ -6,6 +6,7 @@ import "../App.css";
 import {
   IoChatboxEllipses,
   IoDuplicate,
+  IoNotificationsSharp,
   IoSearch,
   IoSettingsSharp,
 } from "react-icons/io5";
@@ -124,7 +125,7 @@ function Header() {
               </Link>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
               <button
                 style={{
                   background: "linear-gradient(45deg, #f30745, #ff7a8a)",
@@ -135,16 +136,21 @@ function Header() {
               >
                 30 kun bepul tomosha qiling
               </button>
-              <button className=" flex items-center gap-2 text-stone-400">
-                <h2>Search</h2>
-                <IoSearch className="" />
-              </button>
-              <li>
+              <Link to={"/search"}>
+                <button className=" flex items-center gap-1 text-stone-300 bg-gray-500 p-[6px] hover:text-white duration-300 rounded-xl px-3">
+                  <h2>Search</h2>
+                  <IoSearch className="" />
+                </button>
+              </Link>
+              <Link to={"/profil/xabarlar"}>
+                <IoNotificationsSharp className=" size-6 cursor-pointer" />
+              </Link>
+              <li className=" w-[80px]">
                 {username ? (
                   <Link to={"/profil"}>
                     <div className="flex items-center gap-2">
                       <img
-                        className="rounded-full w-[55px] h-[45px] cursor-pointer object-cover"
+                        className="rounded-full w-[45px] h-[45px] cursor-pointer object-cover"
                         src={profileImg}
                         alt="Profile"
                       />
