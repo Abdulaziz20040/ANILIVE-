@@ -64,56 +64,56 @@ function Card() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 resposGap2 ">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 resposGap2">
         {data.slice(0, cardsToShow).map((item, index) => (
           <div
             key={item.id}
             id={`card-${index}`}
-            className=" resposncardMAxwidth relative cursor-pointer group mb-4"
+            className="relative cursor-pointer group mb-4"
           >
             {/* Image */}
             <div>
-              <Link to={`details/${item.id}`}>
+              <Link to={`details/${item.id}`} className="relative">
                 <img
                   className="w-full h-[200px] md:h-[270px] rounded-[13px] object-cover"
                   loading="lazy"
                   src={item.img}
                   alt={item.title}
                 />
-              </Link>
 
-              {/* Title */}
-              <h2 className="text-start mt-1  font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis -tracking-2">
-                «{item.name}»
-              </h2>
-              <p className="line-clamp-1 text-stone-300 text-[13px]">
-                {item.desc}
-              </p>
+                {/* Hover Overlay */}
+                <div className="absolute inset-0 bg-opacity-60 bg-black rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
+                  {/* Info Icon */}
+                  <div
+                    className="absolute top-0 right-[-10px] px-2 py-2 text-black cursor-pointer hidden sm:block"
+                    onMouseEnter={() => handleMouseEnter(item, index)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <CiCircleInfo className="text-2xl text-white" />
+                  </div>
 
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-opacity-60 rounded-lg flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10">
-                {/* Info Icon */}
-                <div
-                  className="absolute top-0 right-[-10px] px-2 py-2 text-black cursor-pointer hidden sm:block"
-                  onMouseEnter={() => handleMouseEnter(item, index)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  <CiCircleInfo className="text-2xl text-white" />
+                  {/* Play Icon */}
+                  <button className="text-white">
+                    <GoPlay className="text-white text-6xl transform transition-transform duration-300 group-hover:-translate-y-2" />
+                  </button>
                 </div>
-
-                {/* Play Icon */}
-                <button className="text-white">
-                  <GoPlay className="text-white text-6xl transform transition-transform duration-300 group-hover:-translate-y-2" />
-                </button>
-              </div>
+              </Link>
             </div>
+
+            {/* Title */}
+            <h2 className="text-start mt-1 font-semibold text-white overflow-hidden whitespace-nowrap text-ellipsis -tracking-2">
+              «{item.name}»
+            </h2>
+            <p className="line-clamp-1 text-stone-300 text-[13px]">
+              {item.desc}
+            </p>
 
             {/* Modal */}
             {hoveredItem === item && (
               <div
                 className={`absolute -top-16 ${
                   modalPosition === "left" ? "right-8" : "left-full"
-                } bacgroountrans ms-2 text-white p-6 w-[280px] rounded-xl  z-20 border border-gray-200`}
+                } bacgroountrans ms-2 text-white p-6 w-[280px] rounded-xl z-20 border border-gray-200`}
                 onMouseEnter={() => handleMouseEnter(item, index)}
                 onMouseLeave={handleMouseLeave}
               >

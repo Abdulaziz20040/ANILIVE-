@@ -40,14 +40,6 @@ function Header() {
     navigate("/search");
   }
 
-  const showDrawer = () => {
-    setOpen(true);
-  };
-
-  const onClose = () => {
-    setOpen(false);
-  };
-
   useEffect(() => {
     axios
       .get(aniDubApi)
@@ -137,7 +129,7 @@ function Header() {
                 </button>
               </Link>
               <Link to={"/profil/xabarlar"}>
-                <IoNotificationsSharp className=" size-[25px] cursor-pointer" />
+                <IoNotificationsSharp className=" size-[20px] cursor-pointer" />
               </Link>
               <li className=" w-[80px]">
                 {username ? (

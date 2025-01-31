@@ -16,10 +16,9 @@ function Chat() {
   const [replyTo, setReplyTo] = useState(null); // Reply qilingan xabar
   const navigate = useNavigate(); // navigate hook
 
-  // localStorage'dan username olish
-  const username = localStorage.getItem("name");
-  const profilIMg = localStorage.getItem("profilIMg");
+  const profileImg = localStorage.getItem("profileImages"); // localStorage'dan profil rasmi
   const gmail = localStorage.getItem("gmail");
+  const username = localStorage.getItem("name");
 
   const messagesEndRef = useRef(null); // Eng oxirgi xabarga scroll qilish uchun
   const messageInputRef = useRef(null); // Inputni faollashtirish uchun
@@ -82,36 +81,33 @@ function Chat() {
       )
       .subscribe();
 
-    // Tozalash
     return () => {
       supabase.removeChannel(channel);
     };
   }, []);
 
   useEffect(() => {
-    // Eng oxirgi xabarga scroll qilish
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
 
-    // Inputni faollashtirish
     messageInputRef.current?.focus();
-  }, [messages]); // messages o'zgarganda har doim scroll qilish va inputni faollashtirish
+  }, [messages]);
 
   const sendMessage = async () => {
     if (!messageText.trim()) return;
 
     const newMessage = {
       user_name: username,
-      user_img: profilIMg,
+      user_img: profileImg, // localStorage'dan olingan profil rasmi
       message: messageText,
-      reply_to: replyTo ? replyTo.id : null, // Agar reply qilinayotgan xabar bo'lsa, uni saqlash
+      reply_to: replyTo ? replyTo.id : null,
     };
 
     const { error } = await supabase.from("messages").insert([newMessage]);
     if (error) {
       console.error("Xabarni yuborishda xato:", error.message);
     } else {
-      setMessageText(""); // Xabar yuborilgandan keyin inputni tozalash
-      setReplyTo(null); // Reply qilingan xabarni bo'shatish
+      setMessageText("");
+      setReplyTo(null);
     }
   };
 
@@ -128,8 +124,9 @@ function Chat() {
           <img
             className="w-[55px] h-[55px] rounded-full"
             src={
-              profilIMg ||
-              "https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png"
+              profileImg
+                ? profileImg
+                : "https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png"
             } // Agar profil rasmi bo'lmasa, default rasmni ko'rsatish
             alt="Profile"
           />
@@ -159,8 +156,9 @@ function Chat() {
             {/* Xabarni yozgan foydalanuvchining rasmi birinchi */}
             <img
               src={
-                msg.user_img ||
-                "https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png"
+                msg.user_img
+                  ? msg.user_img
+                  : "https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png"
               } // Agar foydalanuvchining rasmi bo'lmasa, default rasmni ko'rsatish
               alt="user"
               className="rounded-full w-[45px] h-[45px]"

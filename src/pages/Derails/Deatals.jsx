@@ -13,6 +13,7 @@ import { FaRegShareFromSquare } from "react-icons/fa6";
 import Episode from "./Episode";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
+import "./Detals.css";
 
 // Comments Component
 function Comments({ item }) {
@@ -86,24 +87,17 @@ function Details() {
         <Header />
         <div className=" container mt-20">
           {/* details header */}
-          <div className=" flex items-start justify-center gap-6">
-            <div className=" relative">
+          <div className=" flex flex-col md:flex-row items-start justify-center gap-6">
+            <div className=" relative resposnDetailswidth">
               <img
-                style={{
-                  width: "1100px",
-                  height: "550px",
-                  objectFit: "cover",
-                  borderRadius: "10px",
-                  marginBottom: "20px",
-                }}
+                className=" w-full h-auto  object-cover rounded-lg mb-4"
                 src={item.bacgroundImg}
+                alt="background"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#201f31a3] to-transparent opacity-60"></div>
-              <FaPlayCircle className=" absolute top-[44%] left-[48%] size-[60px]" />
             </div>
             {/* desc */}
-            <div>
-              <h1 className=" mb-5">1 qism 1 mavsum</h1>
+            <div className="text-white">
+              <h1 className=" mb-5 text-xl">1 qism 1 mavsum</h1>
               <h1 className=" line-clamp-2 max-w-[200px] mb-3">{item.name}</h1>
               <p>Ko'rishlar soni : {item.eye}</p>
               <p>Rejissor : {item.Director}</p>
@@ -111,32 +105,32 @@ function Details() {
               <p>Yili : {item.data}</p>
 
               <div className=" flex items-center gap-3 mt-3">
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full">
+                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full text-sm">
                   Fullhd
                 </button>
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full">
+                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full text-sm">
                   HD
                 </button>
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full">
+                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full text-sm">
                   1080
                 </button>
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full">
+                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full text-sm">
                   720
                 </button>
               </div>
 
               <div className=" flex items-center gap-3 mt-5">
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full flex items-center gap-2">
+                <button className=" bg-[#7E7E7E45] py-2 px-4 rounded-full flex items-center gap-2">
                   <IoPlayOutline className=" text-white" />
-                  <p>Treyler</p>
+                  <p className="text-sm">Treyler</p>
                 </button>
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full">
+                <button className=" bg-[#7E7E7E45] py-2 px-4 rounded-full">
                   <FaRegBookmark />
                 </button>
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full">
-                  <MdOutlineDownload />
+                <button className=" bg-[#7E7E7E45] py-2 px-4 rounded-full">
+                  <MdOutlineDownload className=" size-[20px]" />
                 </button>
-                <button className=" bg-[#7E7E7E45] py-1 px-4 rounded-full">
+                <button className=" bg-[#7E7E7E45] py-2 px-4 rounded-full">
                   <FaRegShareFromSquare />
                 </button>
               </div>
@@ -148,7 +142,6 @@ function Details() {
           </div>
 
           {/* details qisimlar */}
-
           <div className="flex items-center mb-4">
             <span className="bg-[#F81539] w-[6px] h-[15px] rounded-lg inline-block mr-4"></span>
             <h2 className="text-xl font-semibold text-white">1 Fasl</h2>
@@ -156,7 +149,7 @@ function Details() {
           <hr />
 
           <div>
-            <h1 className=" mt-4"> Hozircha qismlar mavjud emas</h1>
+            <h1 className=" mt-4 text-white"> Hozircha qismlar mavjud emas</h1>
           </div>
           {/* episode */}
           <Episode item={item} />
