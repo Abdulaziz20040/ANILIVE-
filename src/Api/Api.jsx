@@ -6,3 +6,4 @@ export const profilBacgrounimg = `${apiUrl}/profilBacgroundimg`;
 export const slider = `${apiUrl}/Slider`;
 export const tezKunda = `${apiUrl}/TezKunda`;
 export const tRailer = `${apiUrl}/Trailer`;
+export const Profila = `${apiUrl}/galerya`;

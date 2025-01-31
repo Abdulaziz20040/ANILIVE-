@@ -67,8 +67,8 @@ function Tabl() {
   };
 
   return (
-    <div className=" p-4">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 ">
+    <div className=" p-3 relative min-h-[410px]">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 mb-10">
         {cardData.map((card, index) => (
           <div
             onClick={() => card.onclick && card.onclick(navigate)} // Pass navigate to onClick handlers
@@ -82,7 +82,7 @@ function Tabl() {
           </div>
         ))}
       </div>
-      <div className="flex flex-wrap items-center gap-4 sm:gap-8 mt-8 mb-2">
+      <div className="flex flex-wrap items-center gap-4 sm:gap-8 mt-8 mb-2 absolute bottom-0">
         <Link to={"/"}>
           <button className="flex items-center gap-3 text-sm sm:text-base">
             <MdHome className="text-[#FC5555] text-[20px] sm:text-[24px]" />
@@ -91,7 +91,7 @@ function Tabl() {
         </Link>
         <button className="flex items-center gap-3 text-sm sm:text-base">
           <FaUserEdit className="text-[#FC5555] text-[20px] sm:text-[24px]" />
-          <h2>Profilni tahrirlash</h2>
+          <h2>Tahrirlash</h2>
         </button>
         <button
           onClick={handleExit}

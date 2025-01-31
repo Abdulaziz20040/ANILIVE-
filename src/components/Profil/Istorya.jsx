@@ -7,7 +7,7 @@ function Istorya() {
   const navigate = useNavigate();
 
   return (
-    <div>
+    <div className=" min-h-[300px] h-auto">
       <div className=" flex w-[100%] h-[300px] items-center gap-3 justify-center mt-10">
         <TbClockHour3 className=" size-[20px]" />
         <h1 className="text-center text-white text-xl font-semibold">

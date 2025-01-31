@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FaArrowLeft } from "react-icons/fa";
-import { slider } from "../../Api/Api";
-import { Link } from "react-router-dom";
+import { FaArrowLeft, FaCaretLeft } from "react-icons/fa";
+import { Profila } from "../../Api/Api";
+import { Link, useNavigate } from "react-router-dom";
 import profilBacground from "./../../Img/profilbacground.png";
 import userDefault from "../../Img/defaultuser.png";
 
@@ -10,6 +10,8 @@ function Galerya({ setProfileImages }) {
   const [data, setData] = useState([]);
   const [activeTab, setActiveTab] = useState("Galeriya");
   const [gender, setGender] = useState("Male");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const savedImages = JSON.parse(localStorage.getItem("profileImages")) || {};
@@ -19,7 +21,7 @@ function Galerya({ setProfileImages }) {
   // Ma'lumotlarni olish uchun API chaqiruvi
   useEffect(() => {
     axios
-      .get(slider)
+      .get(Profila)
       .then((res) => {
         setData(res.data);
       })
@@ -48,17 +50,17 @@ function Galerya({ setProfileImages }) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
+    <div className=" text-white p-4 sm:p-6 min-h-[400px] h-auto flex flex-col">
       {/* Header */}
-      <div className="flex justify-between items-center mb-6">
-        <div className="flex space-x-6">
+      <div className="flex flex-wrap justify-between mb-6">
+        <div className="flex space-x-4 mb-4 sm:mb-0">
           <span
             className={`cursor-pointer ${
               activeTab === "Galeriya" ? "font-bold text-red-500" : ""
             }`}
             onClick={() => setActiveTab("Galeriya")}
           >
-            Galeriya
+            Bacground
           </span>
           <span
             className={`cursor-pointer ${
@@ -66,7 +68,7 @@ function Galerya({ setProfileImages }) {
             }`}
             onClick={() => setActiveTab("Profil rasm")}
           >
-            Profil rasmlari
+            Profil
           </span>
         </div>
         <div className="flex space-x-4">
@@ -90,61 +92,68 @@ function Galerya({ setProfileImages }) {
       </div>
 
       {/* Rasmlar tarmog'i */}
-      {activeTab === "Galeriya" && (
-        <div className="grid grid-cols-6 gap-4">
-          {data.map((img, index) => (
-            <img
-              key={index}
-              src={
-                gender === "Male" ? img.bacgroundImgBoy : img.bacgroundImggrl
-              }
-              alt={`Gallery Image ${index + 1}`}
-              className="w-[200px] h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
-              onClick={() =>
-                handleImageClick(
+      <div className="flex-grow">
+        {activeTab === "Galeriya" && (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {data.map((img, index) => (
+              <img
+                key={index}
+                src={
                   gender === "Male" ? img.bacgroundImgBoy : img.bacgroundImggrl
-                )
-              }
-            />
-          ))}
-          <img
-            src={profilBacground}
-            alt={`Gallery Image`}
-            onClick={() => handleImageClick(profilBacground)}
-            className="w-[200px] h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
-          />
-        </div>
-      )}
-
-      {activeTab === "Profil rasm" && (
-        <div className="grid grid-cols-6 gap-4">
-          {data.map((img, index) => (
+                }
+                alt={`Gallery Image ${index + 1}`}
+                className="w-full h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
+                onClick={() =>
+                  handleImageClick(
+                    gender === "Male"
+                      ? img.bacgroundImgBoy
+                      : img.bacgroundImggrl
+                  )
+                }
+              />
+            ))}
             <img
-              key={index}
-              src={gender === "Male" ? img.imgBoy : img.imggrl}
-              alt={`Profile Image ${index + 1}`}
-              className="w-[80px] h-[80px] object-cover rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform"
-              onClick={() =>
-                handleImageClick(gender === "Male" ? img.imgBoy : img.imggrl)
-              }
+              src={profilBacground}
+              alt={`Gallery Image`}
+              onClick={() => handleImageClick(profilBacground)}
+              className="w-full h-32 object-cover rounded-lg shadow-lg cursor-pointer hover:scale-105 transition-transform"
             />
-          ))}
-          <img
-            src={userDefault}
-            alt={`Gallery Image`}
-            onClick={() => handleImageClick(userDefault)}
-            className="w-[80px] h-[80px] object-cover rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform"
-          />
-        </div>
-      )}
+          </div>
+        )}
+
+        {activeTab === "Profil rasm" && (
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4">
+            {data.map((img, index) => (
+              <img
+                key={index}
+                src={gender === "Male" ? img.imgBoy : img.imggrl}
+                alt={`Profile Image ${index + 1}`}
+                className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform"
+                onClick={() =>
+                  handleImageClick(gender === "Male" ? img.imgBoy : img.imggrl)
+                }
+              />
+            ))}
+            <img
+              src={userDefault}
+              alt={`Gallery Image`}
+              onClick={() => handleImageClick(userDefault)}
+              className="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-full shadow-lg cursor-pointer hover:scale-105 transition-transform"
+            />
+          </div>
+        )}
+      </div>
 
       {/* Footer */}
-      <Link to="/profil">
-        <button className="mt-6 flex items-center space-x-2 text-red-500 cursor-pointer">
-          <FaArrowLeft />
-          <span>Profil</span>
+      <div className="mt-auto">
+        <button
+          onClick={() => navigate(-1)}
+          className="flex items-center gap-1 mb-4 mt-4"
+        >
+          <FaCaretLeft className="text-[#FC5555] text-[28px]" />
+          <h2>Profil</h2>
         </button>
-      </Link>
+      </div>
     </div>
   );
 }

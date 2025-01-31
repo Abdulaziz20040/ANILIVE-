@@ -106,43 +106,45 @@ function Header() {
               </Link>
               {/* Genres */}
               <div className="relative cursor-pointer group ms-10">
-                <li className="cursor-pointer text-center flex flex-col items-center">
-                  <IoDuplicate className="text-[#e96fae] size-[18px] hover:animate-bounce" />
+                <li className="cursor-pointer text-stone-300 hover:text-white duration-300 text-center flex flex-col items-center">
                   <span>Janrlar</span>
                 </li>
-                <div className="absolute left-0 mt-2 bg-blue-300 w-0 h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:w-[440px] group-hover:h-auto px-3 py-3 flex flex-wrap gap-3 group-hover:opacity-100 rounded-lg">
-                  {data.map((item) => (
-                    <div key={item.categoryName}>
-                      <div className="absolute inset-0 bg-black opacity-20 rounded-lg"></div>
-                      <div className="relative z-10">{item.categoryName}</div>
-                    </div>
-                  ))}
-                </div>
               </div>
               {/* Chat */}
               <Link to={"/chat"}>
-                <li className="cursor-pointer text-center flex flex-col items-center">
-                  <IoChatboxEllipses className="text-[#e96fae] size-[18px] hover:animate-bounce" />
+                <li className="cursor-pointer  text-stone-300 hover:text-white duration-300 text-center flex flex-col items-center">
                   <span>Chat</span>
                 </li>
               </Link>
               {/* Shorts */}
               <Link to={"/edit"}>
-                <li className="cursor-pointer text-center flex flex-col items-center">
-                  <SiYoutubeshorts className="text-[#e96fae] size-[18px] hover:animate-bounce" />
-                  <span>Edit</span>
+                <li className="cursor-pointer  text-stone-300 hover:text-white duration-300 text-center flex flex-col items-center">
+                  <span>Shortslar</span>
                 </li>
               </Link>
             </div>
 
-            <div className="flex items-end gap-4">
+            <div className="flex items-center gap-4">
+              <button
+                style={{
+                  background: "linear-gradient(45deg, #f30745, #ff7a8a)",
+                  border: "2px solid transparent",
+                  backgroundClip: "padding-box",
+                }}
+                className=" max-w-[400px] w-full rounded-xl p-[6px]"
+              >
+                30 kun bepul tomosha qiling
+              </button>
+              <button className=" flex items-center gap-2 text-stone-400">
+                <h2>Search</h2>
+                <IoSearch className="" />
+              </button>
               <li>
                 {username ? (
                   <Link to={"/profil"}>
                     <div className="flex items-center gap-2">
-                      <h1>{username || "No name"}</h1>
                       <img
-                        className="rounded-full w-[45px] h-[45px] cursor-pointer"
+                        className="rounded-full w-[55px] h-[45px] cursor-pointer object-cover"
                         src={profileImg}
                         alt="Profile"
                       />

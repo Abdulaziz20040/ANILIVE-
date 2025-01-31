@@ -1,4 +1,6 @@
 import React from "react";
+import { FaCaretLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const image = [
   "https://i.pinimg.com/236x/47/a8/97/47a8976da5b0745349d75c18c7860175.jpg",
@@ -12,177 +14,95 @@ const image = [
 ];
 
 function Tariflar() {
+  const navigate = useNavigate();
   return (
-    <div className=" mt-4">
+    <div className="mt-4 px-4">
       <div className="flex items-center mb-2">
         <span className="bg-[#F81539] w-[6px] h-[15px] rounded-lg inline-block mr-4"></span>
         <h2 className="text-xl font-semibold text-white">Tariflar</h2>
       </div>
-      <p className=" mt-5 max-w-[800px] text-[15px] text-stone-300">
+      <p className="mt-5 max-w-[800px] text-[15px] text-stone-300">
         Obuna bo‘lish orqali siz sevimli animelaringizni yuqori sifatli
         formatlarda tomosha qilish imkoniyatiga ega bo‘lasiz. Shuningdek, doimiy
         yangiliklardan xabardor bo‘lib turishingiz va faqat obunachilar uchun
         mavjud bo‘lgan maxsus funksiyalardan foydalanishingiz mumkin!
       </p>
 
-      <div className=" mt-10 ">
-        <div className=" grid grid-cols-1 xl:grid-cols-2 gap-10">
-          {/* 1 */}
-          <div className=" bg-[#272246] w-[630px] h-[300px] rounded-[25px] relative flex px-8">
-            {/* left img */}
-            <div className=" grid grid-cols-2 w-[140px] gap-3 absolute left-[45px]">
-              {image.map((src, index) => (
-                <img
-                  src={src}
-                  alt={`Tarif ${index + 1}`}
-                  className="w-[65px] h-[65px] object-cover rounded-md"
-                />
-              ))}
-            </div>
-
-            {/* right  desc */}
-            <div className=" py-10 absolute right-16">
-              <h3 className="text-white font-semibold text-lg">
-                1 Oylik obuna
-              </h3>
-              <p className="text-white text-[13px] max-w-[250px]">
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with
-              </p>
-              <div className=" flex items-center gap-2 mt-5">
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Yangi elemntlar
-                </button>
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Sifatli Format
-                </button>
+      <div className="mt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {[
+            "1 Oylik obuna",
+            "3 Oylik obuna",
+            "6 Oylik obuna",
+            "1 Yillik obuna",
+          ].map((title, index) => (
+            <div
+              key={index}
+              className="bg-[#272246] rounded-[25px] relative flex flex-col sm:flex-row px-6 py-8 max-w-full h-auto"
+            >
+              {/* Left images */}
+              <div className="grid grid-cols-2 gap-3 mb-6 sm:mb-0 sm:mr-8">
+                {image.slice(0, 4).map((src, imgIndex) => (
+                  <img
+                    key={imgIndex}
+                    src={src}
+                    alt={`Tarif ${imgIndex + 1}`}
+                    className="w-[65px] h-[65px] object-cover rounded-md"
+                  />
+                ))}
               </div>
 
-              <button className=" bg-[#EC221F] text-center rounded-xl w-[300px] mt-14 p-2  text-[14px]">
-                Oyiga 15000 so’mga ulaning
-              </button>
-            </div>
-          </div>
-          {/* 2 */}
-          <div className=" bg-[#272246] w-[630px] h-[300px] rounded-[25px] relative flex px-8">
-            {/* left img */}
-            <div className=" grid grid-cols-2 w-[140px] gap-3 absolute left-[45px]">
-              {image.map((src, index) => (
-                <img
-                  src={src}
-                  alt={`Tarif ${index + 1}`}
-                  className="w-[65px] h-[65px] object-cover rounded-md"
-                />
-              ))}
-            </div>
-
-            {/* right  desc */}
-            <div className=" py-10 absolute right-16">
-              <h3 className="text-white font-semibold text-lg">
-                3 Oylik obuna{" "}
-              </h3>
-              <p className="text-white text-[13px] max-w-[250px]">
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with
-              </p>
-              <div className=" flex items-center gap-2 mt-5">
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Yangi elemntlar
-                </button>
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Sifatli Format
-                </button>
-              </div>
-
-              <button className=" bg-[#EC221F] text-center rounded-xl w-[300px] mt-14 p-2 text-[14px]">
-                Oyiga 39 so’mga ulaning{" "}
-              </button>
-            </div>
-          </div>
-          {/* 3 */}
-          <div className=" bg-[#272246] w-[630px] h-[300px] rounded-[25px] relative flex px-8">
-            {/* left img */}
-            <div className=" grid grid-cols-2 w-[140px] gap-3 absolute left-[45px]">
-              {image.map((src, index) => (
-                <img
-                  src={src}
-                  alt={`Tarif ${index + 1}`}
-                  className="w-[65px] h-[65px] object-cover rounded-md"
-                />
-              ))}
-            </div>
-
-            {/* right  desc */}
-            <div className=" py-10 absolute right-16">
-              <h3 className="text-white font-semibold text-lg">
-                6 Oylik obuna{" "}
-              </h3>
-              <p className="text-white text-[13px] max-w-[250px]">
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with
-              </p>
-              <div className=" flex flex-wrap w-[300px] items-center gap-2 mt-5">
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Yangi elemntlar
-                </button>
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Sifatli Format
-                </button>
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Yangiliklardan xabrdor bo’ling{" "}
+              {/* Right description */}
+              <div className="flex-1">
+                <h3 className="text-white font-semibold text-lg mb-2">
+                  {title}
+                </h3>
+                <p className="text-white text-[13px] max-w-[250px] mb-4">
+                  Letraset sheets containing Lorem Ipsum passages, and more
+                  recently with
+                </p>
+                <div className="flex flex-wrap items-center gap-2 mb-5">
+                  <button className="bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
+                    Yangi elementlar
+                  </button>
+                  <button className="bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
+                    Sifatli Format
+                  </button>
+                  {index >= 2 && (
+                    <button className="bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
+                      Yangiliklardan xabardor bo’ling
+                    </button>
+                  )}
+                  {index === 3 && (
+                    <button className="bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
+                      Nimadur
+                    </button>
+                  )}
+                </div>
+                <button className="bg-[#EC221F] text-center rounded-xl w-full sm:w-[300px] mt-4 p-2 text-[14px]">
+                  Oyiga{" "}
+                  {index === 0
+                    ? "15,000 so’mga"
+                    : index === 1
+                    ? "39 so’mga"
+                    : index === 2
+                    ? "69 so’mga"
+                    : "119 so’mga"}{" "}
+                  ulaning
                 </button>
               </div>
-
-              <button className=" bg-[#EC221F] text-center rounded-xl w-[300px] mt-8 p-2 text-[14px]">
-                Oyiga 69 so’mga ulaning{" "}
-              </button>
             </div>
-          </div>
-
-          {/* 4 */}
-          <div className=" bg-[#272246] w-[630px] h-[300px] rounded-[25px] relative flex px-8">
-            {/* left img */}
-            <div className=" grid grid-cols-2 w-[140px] gap-3 absolute left-[45px]">
-              {image.map((src, index) => (
-                <img
-                  src={src}
-                  alt={`Tarif ${index + 1}`}
-                  className="w-[65px] h-[65px] object-cover rounded-md"
-                />
-              ))}
-            </div>
-
-            {/* right  desc */}
-            <div className=" py-10 absolute right-16">
-              <h3 className="text-white font-semibold text-lg">
-                1 Yillik obuna{" "}
-              </h3>
-              <p className="text-white text-[13px] max-w-[250px]">
-                Letraset sheets containing Lorem Ipsum passages, and more
-                recently with
-              </p>
-              <div className=" flex flex-wrap w-[300px] items-center gap-2 mt-5">
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Yangi elemntlar
-                </button>
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Sifatli Format
-                </button>
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  Yangiliklardan xabrdor bo’ling{" "}
-                </button>
-                <button className=" bg-[#4746689E] rounded-full text-center p-2 text-[14px]">
-                  nimadur{" "}
-                </button>
-              </div>
-
-              <button className=" bg-[#EC221F] text-center rounded-xl w-[300px] mt-8 p-2 text-[14px]">
-                Oyiga 119 so’mga ulaning
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      <button
+        onClick={() => navigate(-1)}
+        className="flex items-center gap-1 mb-4 mt-4"
+      >
+        <FaCaretLeft className="text-[#FC5555] text-[28px]" />
+        <h2>Profil</h2>
+      </button>
     </div>
   );
 }
