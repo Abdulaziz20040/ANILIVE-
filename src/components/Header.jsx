@@ -118,7 +118,7 @@ function Header() {
                   border: "2px solid transparent",
                   backgroundClip: "padding-box",
                 }}
-                className=" max-w-[400px] w-full rounded-xl p-[6px]"
+                className=" max-w-[400px] w-full rounded-xl p-[6px] px-3"
               >
                 30 kun bepul tomosha qiling
               </button>
@@ -131,10 +131,10 @@ function Header() {
               <Link to={"/profil/xabarlar"}>
                 <IoNotificationsSharp className=" size-[20px] cursor-pointer" />
               </Link>
-              <li className=" w-[80px]">
+              <li className="">
                 {username ? (
                   <Link to={"/profil"}>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2  w-[50px]">
                       <img
                         className="rounded-full w-[45px] h-[45px] cursor-pointer object-cover"
                         src={profileImg}
