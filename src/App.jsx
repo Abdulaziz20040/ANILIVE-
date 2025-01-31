@@ -18,7 +18,6 @@ import Galerya from "./components/Profil/Galerya";
 import Tariflar from "./components/Profil/Tariflar";
 import Istorya from "./components/Profil/Istorya";
 import Notifacions from "./components/Profil/Notifacions";
-import Search from "./components/Search";
 import Chat from "./components/Chat/Chat";
 import DashboardLayout from "./components/Dashboard/DashboardLayout";
 import Dashboard from "./components/Dashboard/Dashboard";
@@ -26,9 +25,9 @@ import ShortsD from "./components/Dashboard/ShortsD";
 import Obunachilar from "./components/Dashboard/Obunachilar";
 import Animelar from "./components/Dashboard/Animelar";
 import Trailerlar from "./components/Dashboard/Trailerlar";
-import Filter from "./pages/Filter";
 import Genre from "./pages/Genre";
 import loading from "./Img/loading.gif";
+import Filter from "./components/Filter/Filter";
 
 const LoadingScreen = () => {
   return (
@@ -57,7 +56,6 @@ function App() {
     { path: "chat", element: <Chat /> },
     { path: "details/:id", element: <Detals /> },
     { path: "edit", element: <Shorts /> },
-    { path: "search", element: <Search /> },
     { path: "filter", element: <Filter /> },
     { path: "genre", element: <Genre /> },
 

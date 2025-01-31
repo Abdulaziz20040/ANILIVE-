@@ -20,13 +20,7 @@ import { BiBell } from "react-icons/bi";
 function Header() {
   const [data, setData] = useState([]);
   const [open, setOpen] = useState(false);
-  const {
-    handleSearchChange,
-    searchResults,
-    setSearchResults,
-    searchTerm,
-    setSearchTerm,
-  } = useProduct();
+  const { searchTerm } = useProduct();
 
   const [isScrolled, setIsScrolled] = useState(false);
   const username = localStorage.getItem("name");
@@ -106,21 +100,21 @@ function Header() {
                 </li>
               </Link>
               {/* Genres */}
-              <div className="relative cursor-pointer group ms-10">
-                <li className="cursor-pointer text-stone-300 hover:text-white duration-300 text-center flex flex-col items-center">
+              <div className="relative cursor-pointer  ms-10">
+                <li className="cursor-pointer text-stone-300 hover:text-white duration-300 text-center ">
                   <span>Janrlar</span>
                 </li>
               </div>
               {/* Chat */}
               <Link to={"/chat"}>
-                <li className="cursor-pointer  text-stone-300 hover:text-white duration-300 text-center flex flex-col items-center">
+                <li className="cursor-pointer  text-stone-300 hover:text-white duration-300 text-center ">
                   <span>Chat</span>
                 </li>
               </Link>
               {/* Shorts */}
               <Link to={"/edit"}>
-                <li className="cursor-pointer  text-stone-300 hover:text-white duration-300 text-center flex flex-col items-center">
-                  <span>Shortslar</span>
+                <li className="cursor-pointer  text-stone-300 hover:text-white duration-300 text-center ">
+                  <span>Shorts</span>
                 </li>
               </Link>
             </div>
@@ -136,14 +130,14 @@ function Header() {
               >
                 30 kun bepul tomosha qiling
               </button>
-              <Link to={"/search"}>
+              <Link to={"/filter"}>
                 <button className=" flex items-center gap-1 text-stone-300 bg-gray-500 p-[6px] hover:text-white duration-300 rounded-xl px-3">
                   <h2>Search</h2>
                   <IoSearch className="" />
                 </button>
               </Link>
               <Link to={"/profil/xabarlar"}>
-                <IoNotificationsSharp className=" size-6 cursor-pointer" />
+                <IoNotificationsSharp className=" size-[25px] cursor-pointer" />
               </Link>
               <li className=" w-[80px]">
                 {username ? (
