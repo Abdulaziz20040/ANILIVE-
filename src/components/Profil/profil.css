@@ -5,3 +5,13 @@
 .scrollbar-hide::-webkit-scrollbar {
   display: none; /* Chrome, Safari and Opera */
 }
+
+.resposnProfilTabl {
+  border-radius: 25px;
+  width: 130px;
+  height: 130px;
+}
+
+.responsheghtprofil {
+  height: 316px;
+}

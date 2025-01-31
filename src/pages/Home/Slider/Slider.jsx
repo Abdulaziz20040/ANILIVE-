@@ -92,7 +92,7 @@ const Animation = () => {
             ></div>
 
             {/* Gradient Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-transparent opacity-90"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/40 to-transparent opacity-90"></div>
 
             {/* Slide Content */}
             <div className="relative z-10 text-white SliderTop px-4 md:px-12">

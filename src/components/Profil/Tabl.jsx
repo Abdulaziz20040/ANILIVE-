@@ -10,52 +10,54 @@ import { HiMiniPhoto } from "react-icons/hi2";
 import { IoNotificationsSharp, IoSettingsSharp } from "react-icons/io5";
 import { MdAccountBalanceWallet, MdHome } from "react-icons/md";
 import { RxExit } from "react-icons/rx";
-import { TbClockHour3 } from "react-icons/tb";
 import { Link, useNavigate } from "react-router-dom";
+import "../../components/Profil/profil.css";
+import { TbClockHour3 } from "react-icons/tb";
 
 const cardData = [
-  { icon: <FaUser size={30} />, title: "Mening hisobim" },
+  { icon: <FaUser size={24} />, title: "Mening hisobim" },
   {
-    icon: <TbClockHour3 size={30} />,
+    icon: <TbClockHour3 size={24} />,
     title: "Ko’rilganlar",
     onclick: (navigate) => navigate("ko'rilganlar"),
   },
   {
-    icon: <FaBookmark size={30} />,
+    icon: <FaBookmark size={24} />,
     title: "Sevimlilar",
     onclick: (navigate) => navigate("favorites"),
   },
   {
-    icon: <IoSettingsSharp size={30} />,
+    icon: <IoSettingsSharp size={24} />,
     title: "Sozlamalar",
     onclick: (navigate) => navigate("sozlamalar"),
   },
   {
-    icon: <FaCartArrowDown size={30} />,
+    icon: <FaCartArrowDown size={24} />,
     title: "Tariflar",
     onclick: (navigate) => navigate("tariflar"),
   },
   {
-    icon: <HiMiniPhoto size={30} />,
+    icon: <HiMiniPhoto size={24} />,
     title: "Galeriya",
     onclick: (navigate) => navigate("galerya"),
   },
   {
-    icon: <FaHandsHelping size={30} />,
+    icon: <FaHandsHelping size={24} />,
     title: "Yordam",
     onclick: (navigate) => navigate("yordam"),
   },
   {
-    icon: <IoNotificationsSharp size={30} />,
+    icon: <IoNotificationsSharp size={24} />,
     title: "Bildirishnomalar",
     onclick: (navigate) => navigate("xabarlar"),
   },
   {
-    icon: <MdAccountBalanceWallet size={30} />,
+    icon: <MdAccountBalanceWallet size={24} />,
     title: "Balans",
     onclick: (navigate) => navigate("balans"),
   },
 ];
+
 function Tabl() {
   const navigate = useNavigate(); // Initialize the navigate hook
 
@@ -65,32 +67,37 @@ function Tabl() {
   };
 
   return (
-    <div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-5 mt-6">
+    <div className=" p-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4 sm:gap-6 lg:gap-8 ">
         {cardData.map((card, index) => (
           <div
-            onClick={() => card.onclick(navigate)} // Pass navigate to onClick handlers
+            onClick={() => card.onclick && card.onclick(navigate)} // Pass navigate to onClick handlers
             key={index}
-            className="bg-[#47455F] cursor-pointer rounded-[28px] max-w-[130px] w-full h-[130px] flex flex-col justify-center items-center text-center text-white"
+            className="bg-[#47455F] cursor-pointer flex flex-col justify-center resposnProfilTabl items-center text-center text-white p-4 rounded-2xl transition-transform hover:scale-105"
           >
-            {card.icon}
-            <h1 className="font-semibold text-[14px] mt-3">{card.title}</h1>
+            <div className="text-[20px] sm:text-[24px]">{card.icon}</div>
+            <h1 className="font-semibold text-sm sm:text-base mt-2">
+              {card.title}
+            </h1>
           </div>
         ))}
       </div>
-      <div className=" flex items-center gap-8 mt-14">
+      <div className="flex flex-wrap items-center gap-4 sm:gap-8 mt-8 mb-2">
         <Link to={"/"}>
-          <button className=" flex items-center gap-3">
-            <MdHome className=" text-[#FC5555] size-[24px]" />
+          <button className="flex items-center gap-3 text-sm sm:text-base">
+            <MdHome className="text-[#FC5555] text-[20px] sm:text-[24px]" />
             <h2>Home</h2>
           </button>
         </Link>
-        <button className=" flex items-center gap-3">
-          <FaUserEdit className=" text-[#FC5555] size-[24px]" />
+        <button className="flex items-center gap-3 text-sm sm:text-base">
+          <FaUserEdit className="text-[#FC5555] text-[20px] sm:text-[24px]" />
           <h2>Profilni tahrirlash</h2>
         </button>
-        <button onClick={handleExit} className=" flex items-center gap-3">
-          <RxExit className=" text-[#FC5555] size-[20px]" />
+        <button
+          onClick={handleExit}
+          className="flex items-center gap-3 text-sm sm:text-base"
+        >
+          <RxExit className="text-[#FC5555] text-[20px] sm:text-[24px]" />
           <h2>Chiqish</h2>
         </button>
       </div>

@@ -19,11 +19,11 @@ function Profil({ profileImages }) {
       {/* Profil header */}
       <div className="relative mt-3">
         <img
-          className="w-full h-[340px] object-cover rounded-lg shadow-xl"
+          className="w-full responsheghtprofil object-cover rounded-lg shadow-xl"
           src={headerImg || profilbacgroundIMg}
           alt="Header"
         />
-        <div className="absolute bottom-10 left-10 flex flex-col sm:flex-row items-start gap-3">
+        <div className="absolute bottom-10 left-10 flex  items-start gap-3">
           <div>
             <img
               className="w-[70px] h-[70px] rounded-full object-cover"
