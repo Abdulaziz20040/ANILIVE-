@@ -32,7 +32,7 @@ function Header() {
     const savedImages = JSON.parse(localStorage.getItem("profileImages")) || {};
     setProfileImg(
       savedImages.profileImg ||
-        "https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png"
+      "https://winaero.com/blog/wp-content/uploads/2018/08/Windows-10-user-icon-big.png"
     );
   }, []);
 
@@ -73,9 +73,8 @@ function Header() {
     <div className="">
       {/* Desktop Header */}
       <div
-        className={`fixed px-2 top-0 left-0 w-full z-50 transition-colors duration-300 ${
-          isScrolled ? "hoberBgHeader shadow-xl" : "bg-transparent"
-        } hidden lg:block`}
+        className={`fixed px-2 top-0 left-0 w-full z-50 transition-colors duration-300 ${isScrolled ? "hoberBgHeader shadow-xl" : "bg-transparent"
+          } hidden lg:block`}
       >
         <div className="container mt-2 ">
           <ul className="flex gap-10 mx-auto text-white font-semibold items-center justify-between">
@@ -93,9 +92,11 @@ function Header() {
               </Link>
               {/* Genres */}
               <div className="relative cursor-pointer  ms-10">
-                <li className="cursor-pointer text-stone-300 hover:text-white duration-300 text-center ">
-                  <span>Janrlar</span>
-                </li>
+                <Link to={"/genre"} >
+                  <li className="cursor-pointer text-stone-300 hover:text-white duration-300 text-center ">
+                    <span>Janrlar</span>
+                  </li>
+                </Link>
               </div>
               {/* Chat */}
               <Link to={"/chat"}>
