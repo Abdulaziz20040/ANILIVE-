@@ -105,7 +105,14 @@ const Animation = () => {
                 {/* Watch Button */}
                 <div className="mt-4 flex items-center gap-4 flex-wrap">
                   <Link to={`details/${slide.id}`}>
-                    <button className="flex items-center gap-2 watchBtn">
+                    <button
+                      style={{
+                        background: "linear-gradient(45deg, #f30745, #ff7a8a)",
+                        border: "2px solid transparent",
+                        backgroundClip: "padding-box",
+                      }}
+                      className="flex items-center gap-2 w-[120px] py-2 px-4 rounded-xl"
+                    >
                       <FaPlayCircle className="transition-transform duration-500 ease-in-out hover:rotate-360" />
                       Ko'rish
                     </button>
