@@ -1,0 +1,36 @@
+.responsMaxwidth {
+  max-width: 190px;
+  max-height: 260px;
+}
+
+.resposGap {
+  gap: 22px;
+}
+
+.resposGap2 {
+  gap: 32px;
+}
+@media (max-width: 768px) {
+  .responsMaxwidth {
+    max-width: 155px !important;
+  }
+  .resposncardMAxwidth {
+    max-width: 350px !important;
+  }
+
+  .resposGap {
+    gap: 16px !important;
+  }
+  .resposGap2 {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .resposncardMAxwidth {
+    max-width: 260px !important;
+  }
+  .resposGap2 {
+    gap: 16px;
+  }
+}
