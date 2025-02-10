@@ -131,10 +131,7 @@ function Header() {
                 30 kun bepul tomosha qiling
               </button>
               <Link to={"/filter"}>
-                <button className=" flex items-center gap-1 text-stone-300 bg-gray-500 p-[6px] hover:text-white duration-300 rounded-xl px-3">
-                  <h2>Search</h2>
-                  <IoSearch className="" />
-                </button>
+                <IoSearch className=" size-[20px] cursor-pointer" />
               </Link>
               <Link to={"/profil/xabarlar"}>
                 <IoNotificationsSharp className=" size-[20px] cursor-pointer" />

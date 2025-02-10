@@ -232,11 +232,11 @@
 
 /* vedioplayer css */
 
-.bacgrooundDetals {
+.bacgroountrans {
   background-color: rgba(
-    32,
-    32,
-    49,
+    57,
+    57,
+    88,
     0.5
   ); /* Light black background with 50% opacity */
   backdrop-filter: blur(25px); /* Blur effect */

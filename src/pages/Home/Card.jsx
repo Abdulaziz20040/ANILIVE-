@@ -5,7 +5,7 @@ import { GoPlay } from "react-icons/go";
 import { Link } from "react-router-dom";
 import { aniDubApi } from "../../Api/Api";
 import { useProduct } from "../../context/Context";
-import "../tezkunda.css";
+import "../../App.css";
 
 function Card() {
   const [data, setData] = useState([]);
