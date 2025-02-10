@@ -28,6 +28,7 @@ import Trailerlar from "./components/Dashboard/Trailerlar";
 import Genre from "./pages/Genre";
 import loading from "./Img/loading.gif";
 import Filter from "./components/Filter/Filter";
+import Manga from "./pages/manga/Manga";
 
 const LoadingScreen = () => {
   return (
@@ -56,6 +57,7 @@ function App() {
     { path: "chat", element: <Chat /> },
     { path: "details/:id", element: <Detals /> },
     { path: "edit", element: <Shorts /> },
+    { path: "manga", element: <Manga /> },
     { path: "filter", element: <Filter /> },
     { path: "genre", element: <Genre /> },
 
